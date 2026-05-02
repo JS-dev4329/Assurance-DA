@@ -1,0 +1,47 @@
+{
+  "name": "us-stock-analyzer",
+  "version": "1.0.0",
+  "description": "미국 주식 수익률 & 변동성 분석기",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "node server.js",
+    "build": "electron-builder build --win --x64",
+    "build:dir": "electron-builder build --win --x64 --dir"
+  },
+  "dependencies": {
+    "exceljs": "^4.4.0",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "electron": "^41.4.0",
+    "electron-builder": "^26.8.1"
+  },
+  "build": {
+    "appId": "com.stock-analyzer.app",
+    "productName": "미국주식분석기",
+    "copyright": "Copyright © 2025",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "server.js",
+      "templates/**",
+      "assets/**",
+      "node_modules/**",
+      "!node_modules/electron/**",
+      "!node_modules/electron-builder/**"
+    ],
+    "win": {
+      "target": [
+        { "target": "portable", "arch": ["x64"] }
+      ],
+      "icon": "assets/icon.png",
+      "signAndEditExecutable": false
+    },
+    "portable": {
+      "artifactName": "미국주식분석기-portable.exe"
+    }
+  }
+}
